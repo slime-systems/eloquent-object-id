@@ -2,12 +2,12 @@
 
 namespace SlimeSystems\EloquentObjectId;
 
+use Closure;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
-use Illuminate\Contracts\Database\Eloquent\SerializesCastableAttributes;
 use SlimeSystems\ObjectId;
 use SlimeSystems\ObjectId\Exception\Invalid;
 
-class ObjectIdCast implements CastsAttributes, SerializesCastableAttributes
+class ObjectIdCast implements CastsAttributes
 {
     public function get($model, string $key, mixed $value, array $attributes): ?ObjectId
     {
@@ -25,10 +25,14 @@ class ObjectIdCast implements CastsAttributes, SerializesCastableAttributes
         return null;
     }
 
-    public function serialize($model, string $key, mixed $value, array $attributes): mixed
+    private static array $memoized = [];
+
+    public static function setDefault(string $fieldName): Closure
     {
-        if ($value instanceof ObjectId)
-            return $value->toBinary();
-        return $value;
+        return self::$memoized[$fieldName] ??= function ($model) use ($fieldName) {
+            if (!is_null($model->$fieldName))
+                return;
+            $model->$fieldName = new ObjectId;
+        };
     }
 }
