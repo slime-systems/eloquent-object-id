@@ -3,6 +3,9 @@
     "description": "MongoDB-style BSON's ObjectId for Eloquent and Laravel",
     "type": "library",
     "license": "BSD-2-Clause",
+    "scripts": {
+        "test": "vendor/bin/pest"
+    },
     "autoload": {
         "psr-4": {
             "SlimeSystems\\EloquentObjectId\\": "src/"
@@ -28,5 +31,15 @@
     },
     "conflict": {
         "wooserv/laravel-objectid": "*"
+    },
+    "require-dev": {
+        "pestphp/pest": "^4.1",
+        "orchestra/testbench": "^10.7",
+        "nesbot/carbon": "^3.10"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     }
 }
