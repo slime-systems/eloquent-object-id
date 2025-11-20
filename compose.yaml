@@ -1,0 +1,6 @@
+services:
+  application:
+    build: .
+    volumes:
+      - ".:/var/www/html"
+    stop_grace_period: 60s

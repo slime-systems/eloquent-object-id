@@ -1,0 +1,32 @@
+{
+    "name": "slime-systems/eloquent-object-id",
+    "description": "MongoDB-style BSON's ObjectId for Eloquent and Laravel",
+    "type": "library",
+    "license": "BSD-2-Clause",
+    "autoload": {
+        "psr-4": {
+            "SlimeSystems\\EloquentObjectId\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Sarun Rattanasiri"
+        }
+    ],
+    "require": {
+        "php": ">=8.0",
+        "illuminate/database": ">=10.0",
+        "illuminate/support": ">=10.0",
+        "slime-systems/object-id": "^1.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SlimeSystems\\EloquentObjectId\\ServiceProvider"
+            ]
+        }
+    },
+    "conflict": {
+        "wooserv/laravel-objectid": "*"
+    }
+}
