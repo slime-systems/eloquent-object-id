@@ -2,6 +2,10 @@
 
 MongoDB-style BSON's ObjectId for Eloquent and Laravel.
 
+<p align="center">
+  <img src="./assets/logo.webp" alt="Your Project Logo" width="61.8%"/>
+</p>
+
 ## Installation
 
 Install the package via Composer:
