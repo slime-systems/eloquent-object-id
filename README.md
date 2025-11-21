@@ -92,6 +92,12 @@ Cat::where('id', '>', OI::val($lastKnownCat->id))
 
 That's right: __ObjectID__!
 
+#### But doesn't keyset pagination prevent jumping to arbitrary page numbers?
+
+Indeed, it does. This is a common limitation where traditional incremental IDs also fall short.
+
+However, ObjectID offers a unique advantage: its embedded timestamp allows you to chunk entities into chronologically indexed pages. This not only enables efficient jumps to specific sections of a collection but also makes pagination significantly more intuitive. Imagine effortlessly navigating to a specific point in time on your social media feed – that's the power ObjectID brings to pagination.
+
 ### Various Ways to Utilize This Invention
 
 As demonstrated, the ObjectID gives you the best of what both a timestamp and a unique, incremental ID have to offer. There is more than one way to utilize this powerful identifier. Have fun explore its full potential!

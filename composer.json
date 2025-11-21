@@ -1,8 +1,28 @@
 {
     "name": "slime-systems/eloquent-object-id",
-    "description": "MongoDB-style BSON's ObjectId for Eloquent and Laravel",
+    "description": "MongoDB-style BSON's ObjectId for Eloquent and Laravel. Provides unique, chronologically ordered IDs.",
     "type": "library",
     "license": "BSD-2-Clause",
+    "keywords": [
+        "laravel",
+        "eloquent",
+        "id",
+        "objectid",
+        "object-id",
+        "bson",
+        "mongodb",
+        "identifier",
+        "uuid",
+        "pagination",
+        "keyset",
+        "cursor-pagination",
+        "timestamp",
+        "chronological",
+        "unique-id",
+        "unique-identifier",
+        "primary-key",
+        "sortable-id"
+    ],
     "scripts": {
         "test": "vendor/bin/pest"
     },
