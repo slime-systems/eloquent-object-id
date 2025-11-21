@@ -216,6 +216,18 @@ $cat = Cat::find(OI::val('0123456789abcdef1011121')); // <- this works, but prob
 $cat = Cat::find($someId); // <- this doesn't work; Eloquent won't understand what to do with the object.
 ```
 
+## Tests
+
+~~~bash
+composer run test
+~~~
+
+or if you have containerd:
+
+~~~bash
+make test
+~~~
+
 ## License
 
 This library is open-sourced software licensed under the [BSD-2-Clause license](./LICENSE.md).
