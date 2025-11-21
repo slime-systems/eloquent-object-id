@@ -2,6 +2,10 @@
 
 MongoDB-style BSON's ObjectId for Eloquent and Laravel.
 
+[![PHP Composer](https://github.com/slime-systems/eloquent-object-id/actions/workflows/php.yml/badge.svg)](https://github.com/slime-systems/eloquent-object-id/actions/workflows/php.yml)
+[![Packagist Version](https://img.shields.io/packagist/v/slime-systems/eloquent-object-id)](https://packagist.org/packages/slime-systems/eloquent-object-id)
+
+
 <p align="center">
   <img src="./assets/logo.webp" alt="Your Project Logo" width="61.8%"/>
 </p>
