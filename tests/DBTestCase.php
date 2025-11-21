@@ -22,9 +22,9 @@ abstract class DBTestCase extends BaseTestCase
         parent::setUp();
         $db = new DB;
         $db->addConnection([
-            'driver'   => 'sqlite',
+            'driver' => 'sqlite',
             'database' => ':memory:',
-            'prefix'   => '',
+            'prefix' => '',
         ]);
         $db->setAsGlobal();
         $db->bootEloquent();
@@ -44,7 +44,6 @@ use SlimeSystems\EloquentObjectId\OI;
 
 class Cat extends Model
 {
-    protected $table = 'cats';
     public $timestamps = false;
     protected $guarded = [];
 
