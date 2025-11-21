@@ -4,6 +4,8 @@ namespace SlimeSystems\EloquentObjectId;
 
 use Closure;
 use SlimeSystems\ObjectId;
+use SlimeSystems\ObjectId\Exception\Invalid;
+use function is_string;
 
 class OI
 {
@@ -12,14 +14,22 @@ class OI
     public static function setDefault(string $fieldName): Closure
     {
         return self::$memoized[$fieldName] ??= function ($model) use ($fieldName) {
-            if (!is_null($model->$fieldName))
+            if ($model->$fieldName !== null)
                 return;
             $model->$fieldName = new ObjectId;
         };
     }
 
-    public static function val(ObjectId $id): string
+    public static function val($id): string
     {
-        return $id->toBinary();
+        if ($id instanceof ObjectId)
+            return $id->toBinary();
+        if (!is_string($id))
+            return $id;
+        try {
+            return ObjectId::fromString($id)->toBinary();
+        } catch (Invalid) {
+            return $id;
+        }
     }
 }

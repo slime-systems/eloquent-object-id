@@ -10,6 +10,8 @@ class ObjectIdCast implements CastsAttributes
 {
     public function get($model, string $key, mixed $value, array $attributes): ?ObjectId
     {
+        if ($value instanceof ObjectId)
+            return $value;
         try {
             return ObjectId::fromBinary($value);
         } catch (Invalid) {
@@ -21,6 +23,6 @@ class ObjectIdCast implements CastsAttributes
     {
         if ($value instanceof ObjectId)
             return $value->toBinary();
-        return null;
+        return $value;
     }
 }
