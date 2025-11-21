@@ -2,7 +2,6 @@
 
 namespace SlimeSystems\EloquentObjectId;
 
-use Closure;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use SlimeSystems\ObjectId;
 use SlimeSystems\ObjectId\Exception\Invalid;
@@ -23,16 +22,5 @@ class ObjectIdCast implements CastsAttributes
         if ($value instanceof ObjectId)
             return $value->toBinary();
         return null;
-    }
-
-    private static array $memoized = [];
-
-    public static function setDefault(string $fieldName): Closure
-    {
-        return self::$memoized[$fieldName] ??= function ($model) use ($fieldName) {
-            if (!is_null($model->$fieldName))
-                return;
-            $model->$fieldName = new ObjectId;
-        };
     }
 }

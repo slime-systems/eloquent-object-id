@@ -3,6 +3,7 @@
 namespace Tests;
 
 use Carbon\Carbon;
+use SlimeSystems\EloquentObjectId\OI;
 use SlimeSystems\ObjectId;
 
 describe('ObjectIdCast', function () {
@@ -47,9 +48,9 @@ describe('ObjectIdCast', function () {
             Cat::create(['id' => $id, 'name' => $name]);
         }
 
-        expect(Cat::where('id', '>', $id2->toBinary())->count())->toBe(1);
-        expect(Cat::where('id', '>=', $id2->toBinary())->count())->toBe(2);
-        expect(Cat::where('id', '<', $id2->toBinary())->count())->toBe(1);
-        expect(Cat::where('id', '<=', $id3->toBinary())->count())->toBe(3);
+        $scope = Cat::where('id', '>', OI::val($id2));
+        expect($scope->first()->name)->toBe('Shadow')->and($scope->count())->toBe(1);
+        expect(Cat::where('id', '>=', OI::val($id2))->count())->toBe(2);
+        expect(Cat::where('id', '<=', OI::val($id3))->count())->toBe(3);
     });
 });

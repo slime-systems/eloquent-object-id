@@ -40,6 +40,7 @@ namespace Tests;
 
 use Illuminate\Database\Eloquent\Model;
 use SlimeSystems\EloquentObjectId\ObjectIdCast;
+use SlimeSystems\EloquentObjectId\OI;
 
 class Cat extends Model
 {
@@ -53,6 +54,6 @@ class Cat extends Model
 
     protected static function booted()
     {
-        static::creating(ObjectIdCast::setDefault('id'));
+        static::creating(OI::setDefault('id'));
     }
 }
